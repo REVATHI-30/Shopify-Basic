@@ -1,36 +1,175 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+*,*::after,*::before{
+  box-sizing: border-box;
+}
 html,
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
-}
-body {
+  padding: 0;
+  width: 100vw;
+  font-family: "Inter", sans-serif; 
   display: flex;
-  justify-content: center;
+  flex-direction: column; 
   align-items: center;
-  background: linear-gradient(to right bottom, #873572, black);
-}
-a {
-  display: inline-block;
-  color: lightgrey;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  white-space: nowrap;
-  padding: 12px;
-  border: 1px solid white;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.15s ease-in-out;
+  overflow: hidden;
+
 }
 
-a:hover {
-  background: rgba(0, 0, 0, 0.23);
+.container {
+  text-align: center;
+  height: 100vh;
+  width: 100%; 
+  overflow: scroll;
+}
+
+.title {
+  font-size: 25px;
+  font: bold;
+  margin-bottom: 20px; 
+  line-height: 19.36px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 20px; 
+  z-index: 1; 
+}
+
+.tab {
+  flex: 1; 
+  padding: 10px 0;
+  background-color: #F2F2F2;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 0; 
+}
+
+.tab:hover, .tab.selected {
+  background-color: black;
   color: white;
-  transform: scale(1.03);
-  text-decoration: none;
-}
-a:active {
-  transform: scale(0.98);
+  border-radius: 5px; 
 }
 
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  padding: 0 10px;
+  z-index: 0;
+  height:80vh; 
+  width: 98%;
+
+  gap: 1rem;
+}
+
+.product-card {
+  position: relative; 
+  width: 100%; 
+height: 100%;
+
+  margin-bottom: 20px;
+  padding: 0; 
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-image {
+  width: 100%; 
+  height: 60%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.badge {
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  background-color: #f2f2f2; 
+  color: black; 
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  z-index: 1;
+}
+
+.info-block {
+  display: none;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-info {
+  text-align: left; 
+width: 100%;
+}
+
+.product-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+.vendor {
+  font-weight: bold;
+ padding: 0;
+ width: 50%;
+}
+
+.price {
+  margin-bottom: 5px;
+}
+.discounted-price{
+  color: black;
+  font-weight: bold;
+}
+.compare-price{
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.discount {
+  color: red;
+  font-weight: bold;
+  
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 15px 0; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #333;
+}
+
+@media screen and (max-width:1025px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr;
+    height: 130vh;
+  }
+}
+@media screen and (max-width:767px) {
+  .product-container {
+    grid-template-columns: 1fr;
+    height: 360vh;
+  }
+}
